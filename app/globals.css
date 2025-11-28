@@ -1,26 +1,101 @@
 @import "tailwindcss";
+/* ========================= */
+/*  Ripple Hover Animation */
+/* ========================= */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.ripple-effect {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 1.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.ripple {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.ripple-animate {
+  animation: ripple 0.8s ease-out forwards;
+}
+.neon-glow {
+  text-shadow:
+    0 0 5px #00eaff,
+    0 0 10px #00eaff,
+    0 0 20px #00eaff;
+}
+
+.neon-link:hover {
+  text-shadow:
+    0 0 8px #00eaff,
+    0 0 16px #00eaff;
+}
+/* Neon Glow */
+.neon-glow {
+  text-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff, 0 0 20px #00eaff;
+}
+
+.neon-link:hover {
+  text-shadow: 0 0 8px #00eaff, 0 0 16px #00eaff;
+}
+
+/* Floating Blob Background Behind Header */
+.blob-bg {
+  position: fixed;
+  top: -50px;
+  right: -150px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(0,255,255,0.35), rgba(0,255,255,0.05));
+  filter: blur(80px);
+  border-radius: 50%;
+  animation: blobFloat 12s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes blobFloat {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  100% {
+    transform: translateY(60px) translateX(-40px) scale(1.15);
   }
 }
+@keyframes pulse-slow {
+  0% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 0.4; }
+}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes pulse-slower {
+  0% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.3); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 0.3; }
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.4;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-shine {
+  animation: shine 2.5s ease-in-out infinite;
 }
