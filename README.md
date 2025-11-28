@@ -6,7 +6,7 @@ A modern, responsive, AI-enhanced front-end focused project built to showcase Fu
 ---
 
 ## Live Demo  
-*Deploy link coming soon… (Will update here after deployment)*
+https://sneha-portfolio-chi-six.vercel.app/
 
 ---
 
