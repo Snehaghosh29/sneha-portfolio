@@ -19,7 +19,7 @@ https://sneha-portfolio-chi-six.vercel.app/
 
 ---
 
-## 🛠 Tech Stack  
+## Tech Stack  
 - **Frontend:** Next.js, TailwindCSS, Framer Motion, GSAP  
 - **Forms:** Web3Forms API (Auto-mail support planned to be added)
 
